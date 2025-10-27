@@ -8,6 +8,11 @@ RUN apt update && apt install -yq --no-install-recommends \
 RUN useradd -rm -d /home/fabri -s /bin/bash fabri
 # para crear el password usamos el comando chpasswd
 RUN echo "fabri:1234" | chpasswd
+
+# directorio de trabajo dentro del contenedor Apache
+WORKDIR /var/www/html
+# copiamos el contenido del directorio src (relativo al contenedor)
+COPY ./src .
 #activamos el puerto 80 de apache
 EXPOSE 80
 #ejecutamos apache en primer plano cuando se inicie el contenedor
