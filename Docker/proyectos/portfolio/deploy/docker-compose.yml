@@ -3,6 +3,6 @@ services:
     build: #compilar la imagen a partir del Dockerfile
       context: .. #raiz del proyecto portfolio
       dockerfile: deploy/Dockerfile
-    container_name: ctportfolio
+    container_name: ctportfolioDAW
     ports:
       -"8810:80"
