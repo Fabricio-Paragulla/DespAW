@@ -10,8 +10,8 @@ spec:
       app: webtaller
   template:
     metadata:
-    labels:
-        app: webtaller
+      labels:
+          app: webtaller
     spec:
       containers:
         - name: webtaller
