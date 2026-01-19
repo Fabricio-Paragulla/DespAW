@@ -6,6 +6,6 @@ metadata:
 spec:
   containers:
     - name: pod-webtaller
-      image: fabri/ubjambbptaller:latest
+      image: fabri/ubefpnptaller:latest
       ports:
         - containerPort: 80
