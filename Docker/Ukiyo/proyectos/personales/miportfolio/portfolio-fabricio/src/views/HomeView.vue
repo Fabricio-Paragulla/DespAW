@@ -41,15 +41,15 @@ onUnmounted(() => window.removeEventListener('mousemove', handleMouseMove))
         </h1>
         
         <p class="mt-4 text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-12 animate-fade-in-up delay-100 font-light">
-            Hola, soy <span class="font-bold text-gray-900 dark:text-white">Fabri</span>. Transformo código complejo en arquitecturas simples y escalables.
+            Hola, soy <span class="font-bold text-gray-900 dark:text-white">Fabricio</span>. Transformo código complejo en arquitecturas simples y escalables.
         </p>
         
         <div class="flex flex-col sm:flex-row justify-center gap-6 animate-fade-in-up delay-200">
             <RouterLink to="/proyectos" class="px-10 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full transition-all shadow-lg hover:shadow-blue-500/40 hover:-translate-y-1">
             Ver Mis Proyectos
             </RouterLink>
-            <RouterLink to="/sobre-mi" class="px-10 py-4 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-200 font-bold rounded-full hover:bg-gray-100 dark:hover:bg-slate-800 transition-all hover:-translate-y-1">
-            Conóceme
+            <RouterLink to="/contacto" class="px-10 py-4 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 font-bold rounded-full hover:bg-white dark:hover:bg-slate-800 hover:text-blue-600 dark:hover:text-cyan-400 transition-all hover:-translate-y-1">
+            Contáctame
             </RouterLink>
         </div>
         </div>

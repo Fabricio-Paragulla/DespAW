@@ -32,7 +32,7 @@ const experience = [
                 Más que escribir código, me obsesiona <span class="text-blue-500 font-semibold">entender el porqué</span> de las cosas.
             </p>
             <p class="mb-4">
-                Actualmente finalizando DAW, combino la agilidad del desarrollo web con la robustez de la infraestructura (DevOps).
+                Actualmente finalizando DAW, combino la agilidad del desarrollo web con la robustez de la infraestructura.
                 Me apasiona la Inteligencia Artificial y no temo romper cosas si es la única forma de aprender a arreglarlas mejor.
             </p>
             <p>
@@ -45,7 +45,7 @@ const experience = [
             <div class="relative aspect-square rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800">
                 <img src="@/assets/img/perfil.jpg" alt="Fabricio Paragulla" class="object-cover w-full h-full transform transition hover:scale-110 duration-700">
             </div>
-            <p class="text-center text-xs text-gray-400 mt-2">(Pon tu foto en assets/img/ y cambia el src)</p>
+            <p class="text-center text-xs text-gray-400 mt-2"></p>
         </div>
         </div>
 

@@ -41,9 +41,9 @@ const toggleTheme = () => {
             </div>
 
             <div class="hidden md:flex space-x-8 items-center">
-            <RouterLink v-for="item in ['Inicio', 'Sobre Mí', 'Proyectos']" 
+            <RouterLink v-for="item in ['Inicio', 'Sobre Mí', 'Proyectos','Contacto']" 
                 :key="item" 
-                :to="item === 'Inicio' ? '/' : item === 'Sobre Mí' ? '/sobre-mi' : '/proyectos'"
+                :to="item === 'Inicio' ? '/' : item === 'Sobre Mí' ? '/sobre-mi' : item === 'Proyectos' ? '/proyectos' : '/contacto'"
                 class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-cyan-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">
                 {{ item }}
             </RouterLink>
@@ -72,9 +72,9 @@ const toggleTheme = () => {
         <transition name="slide-fade">
         <div v-if="isMenuOpen" class="md:hidden bg-white dark:bg-slate-900 border-t dark:border-gray-800">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <RouterLink v-for="item in ['Inicio', 'Sobre Mí', 'Proyectos']" 
+            <RouterLink v-for="item in ['Inicio', 'Sobre Mí', 'Proyectos', 'Contacto']" 
                 :key="item" 
-                :to="item === 'Inicio' ? '/' : item === 'Sobre Mí' ? '/sobre-mi' : '/proyectos'"
+                :to="item === 'Inicio' ? '/' : item === 'Sobre Mí' ? '/sobre-mi' : item === 'Proyectos' ? '/proyectos' : '/contacto'"
                 @click="isMenuOpen = false"
                 class="block text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-800 px-3 py-2 rounded-md text-base font-medium">
                 {{ item }}
@@ -86,6 +86,13 @@ const toggleTheme = () => {
 </template>
 
 <style scoped>
-.slide-fade-enter-active, .slide-fade-leave-active { transition: all 0.3s ease; }
-.slide-fade-enter-from, .slide-fade-leave-to { opacity: 0; transform: translateY(-10px); }
+
+.slide-fade-enter-active, .slide-fade-leave-active { 
+    transition: all 0.3s ease; 
+}
+
+.slide-fade-enter-from, .slide-fade-leave-to { 
+    opacity: 0; 
+    transform: translateY(-10px); 
+}
 </style>
