@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: www.portfolio.fabricio.es
+  - host: portfoliofabricio.194.163.170.169.nip.io
     http:
       paths:
       - path: /
