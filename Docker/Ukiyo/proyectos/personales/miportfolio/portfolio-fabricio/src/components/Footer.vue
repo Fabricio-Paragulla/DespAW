@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { t } from '../i18n'
 </script>
 
 <template>
@@ -11,7 +12,7 @@
                 © 2026 <span class="text-blue-600 dark:text-cyan-400">Fabricio Paragulla</span>.
             </p>
             <p class="text-sm text-gray-400 dark:text-gray-500 mt-1">
-                Desarrollado con Vue 3, Tailwind & Kubernetes.
+                {{ t.footer.rights }}
             </p>
             </div>
 

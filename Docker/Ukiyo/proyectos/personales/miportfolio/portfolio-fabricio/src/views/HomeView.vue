@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 import { RouterLink } from 'vue-router'
+import { t } from '../i18n'
 
 // Lógica para el efecto Parallax del Mouse
 const mouseX = ref(0)
 const mouseY = ref(0)
 
 const handleMouseMove = (e: MouseEvent) => {
-// Calculamos la posición del ratón relativa al centro de la ventana
-    mouseX.value = (e.clientX - window.innerWidth / 2) / 25 // El divisor controla la intensidad
+    mouseX.value = (e.clientX - window.innerWidth / 2) / 25
     mouseY.value = (e.clientY - window.innerHeight / 2) / 25
 }
 
@@ -30,26 +30,26 @@ onUnmounted(() => window.removeEventListener('mousemove', handleMouseMove))
             :style="{ transform: `translate(${mouseX * 0.5}px, ${mouseY * 0.5}px)` }">
         
         <h2 class="text-blue-600 dark:text-cyan-400 font-bold tracking-widest uppercase text-sm mb-6 animate-fade-in-down">
-            FULL STACK DEVELOPER & DEVOPS ENGINEER
+            {{ t.home.role }}
         </h2>
         
         <h1 class="text-5xl md:text-8xl font-black text-gray-900 dark:text-white mb-8 leading-tight animate-fade-in-up tracking-tight">
-            IDEAS<br>
+            {{ t.home.title }}<br>
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
-            REALES.
+            {{ t.home.title_span }}
             </span>
         </h1>
         
         <p class="mt-4 text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-12 animate-fade-in-up delay-100 font-light">
-            Hola, soy <span class="font-bold text-gray-900 dark:text-white">Fabricio</span>. Transformo código complejo en arquitecturas simples y escalables.
+            {{ t.home.subtitle }}
         </p>
         
         <div class="flex flex-col sm:flex-row justify-center gap-6 animate-fade-in-up delay-200">
             <RouterLink to="/proyectos" class="px-10 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full transition-all shadow-lg hover:shadow-blue-500/40 hover:-translate-y-1">
-            Ver Mis Proyectos
+            {{ t.home.btn_projects }}
             </RouterLink>
             <RouterLink to="/contacto" class="px-10 py-4 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 font-bold rounded-full hover:bg-white dark:hover:bg-slate-800 hover:text-blue-600 dark:hover:text-cyan-400 transition-all hover:-translate-y-1">
-            Contáctame
+            {{ t.home.btn_contact }}
             </RouterLink>
         </div>
         </div>
@@ -57,25 +57,19 @@ onUnmounted(() => window.removeEventListener('mousemove', handleMouseMove))
 </template>
 
 <style scoped>
-/* Optimizaciones para evitar lag en el parallax */
-.will-change-transform { 
-    will-change: transform; 
-}
-
 .animate-fade-in-up { 
     animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    opacity: 0;
-    transform: translateY(40px);
+    opacity: 0; transform: translateY(40px); 
 }
 
 .animate-fade-in-down { 
     animation: fadeInDown 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    opacity: 0;
+    opacity: 0; 
     transform: translateY(-40px); 
 }
 
 .delay-100 { 
-    animation-delay: 0.2s;
+    animation-delay: 0.2s; 
 }
 
 .delay-200 { 
@@ -90,9 +84,9 @@ onUnmounted(() => window.removeEventListener('mousemove', handleMouseMove))
 }
 
 @keyframes fadeInDown { to 
-    { 
-        opacity: 1;
-        transform: translateY(0);
+    {
+        opacity: 1; 
+        transform: translateY(0); 
     } 
 }
 

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { RouterLink } from 'vue-router'
+import { t, toggleLanguage, currentLang } from '../i18n'
 
 const isMenuOpen = ref(false)
 const isDark = ref(false)
@@ -41,13 +42,22 @@ const toggleTheme = () => {
             </div>
 
             <div class="hidden md:flex space-x-8 items-center">
-            <RouterLink v-for="item in ['Inicio', 'Sobre Mí', 'Proyectos','Contacto']" 
-                :key="item" 
-                :to="item === 'Inicio' ? '/' : item === 'Sobre Mí' ? '/sobre-mi' : item === 'Proyectos' ? '/proyectos' : '/contacto'"
+            <RouterLink v-for="item in [
+                { label: t.nav.home, path: '/' },
+                { label: t.nav.about, path: '/sobre-mi' },
+                { label: t.nav.projects, path: '/proyectos' },
+                { label: t.nav.contact, path: '/contacto' }
+                ]" 
+                :key="item.path" 
+                :to="item.path"
                 class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-cyan-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                {{ item }}
+                {{ item.label }}
             </RouterLink>
             
+            <button @click="toggleLanguage" class="mr-2 px-3 py-1 rounded-md text-sm font-bold border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-slate-800 transition text-gray-700 dark:text-gray-300">
+                {{ currentLang === 'es' ? 'EN' : 'ES' }}
+            </button>
+
             <button @click="toggleTheme" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-slate-800 transition">
                 <span v-if="isDark">☀️</span>
                 <span v-else>🌙</span>
@@ -55,10 +65,15 @@ const toggleTheme = () => {
             </div>
 
             <div class="md:hidden flex items-center">
+            <button @click="toggleLanguage" class="mr-3 text-sm font-bold border px-2 py-1 rounded dark:border-gray-700 text-gray-700 dark:text-gray-300">
+                {{ currentLang === 'es' ? 'EN' : 'ES' }}
+            </button>
+
             <button @click="toggleTheme" class="mr-4 p-2">
                 <span v-if="isDark">☀️</span>
                 <span v-else>🌙</span>
             </button>
+
             <button @click="toggleMenu" class="text-gray-700 dark:text-gray-200 focus:outline-none">
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path v-if="!isMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -72,12 +87,17 @@ const toggleTheme = () => {
         <transition name="slide-fade">
         <div v-if="isMenuOpen" class="md:hidden bg-white dark:bg-slate-900 border-t dark:border-gray-800">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <RouterLink v-for="item in ['Inicio', 'Sobre Mí', 'Proyectos', 'Contacto']" 
-                :key="item" 
-                :to="item === 'Inicio' ? '/' : item === 'Sobre Mí' ? '/sobre-mi' : item === 'Proyectos' ? '/proyectos' : '/contacto'"
+            <RouterLink v-for="item in [
+                { label: t.nav.home, path: '/' },
+                { label: t.nav.about, path: '/sobre-mi' },
+                { label: t.nav.projects, path: '/proyectos' },
+                { label: t.nav.contact, path: '/contacto' }
+                ]" 
+                :key="item.path" 
+                :to="item.path"
                 @click="isMenuOpen = false"
                 class="block text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-800 px-3 py-2 rounded-md text-base font-medium">
-                {{ item }}
+                {{ item.label }}
             </RouterLink>
             </div>
         </div>
@@ -92,7 +112,8 @@ const toggleTheme = () => {
 }
 
 .slide-fade-enter-from, .slide-fade-leave-to { 
-    opacity: 0; 
-    transform: translateY(-10px); 
+    opacity: 0;
+    transform: translateY(-10px);
 }
+
 </style>
